@@ -1,0 +1,174 @@
+{% extends "base.html"%}
+{% block content %}
+
+<body class="bg-gradient-primary">
+
+  <div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-7">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Lets analyse your priorities!</h1>
+              </div>
+              <form class="user" method="POST">
+                {% csrf_token %}
+              
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">
+                      Capacity of Water Tank</label>
+                      <input type="number" name="tank_cap" value="Enter Name">
+                  </div>
+
+
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1">
+                      members Sharing Tanki </label>
+                      <input type="number" name="member" value="Enter Name">
+                  </div>
+
+
+
+
+
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1">How Often you seggregate garbage  </label>
+                      <select class="form-control" id="exampleFormControlSelect1" name="garbage">
+                        <option value="not at all">not at all</option>
+                        <option value="to some extent">to some extent</option>
+                        <option value="a lot">a lot</option>
+                      </select>
+                    </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect1">How Often you dispose waste in water bodies  </label>
+                          <select class="form-control" id="exampleFormControlSelect1" name='waste_water'>
+                            <option value="not at all">not at all</option>
+                            <option value="to some extent">to some extent</option>
+                            <option value="a lot">a lot</option>
+                          </select></div>
+                  
+
+
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">How odten do you go for biodegradable options </label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="biodegradable">
+                        <option value="not at all">not at all</option>
+                        <option value="to some extent">to some extent</option>
+                        <option value="a lot">a lot</option>
+                      </select>
+                    </div>
+
+
+
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect1">How odten do you go for 3R's </label>
+                          <select class="form-control" id="exampleFormControlSelect1" name="recycle">
+                              <option value="not at all">not at all</option>
+                              <option value="to some extent">to some extent</option>
+                              <option value="a lot">a lot</option>
+                            </select>
+                        </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">If Government make hard rules will you follow them</label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="govt">
+                                <option value="not at all">not at all</option>
+                                <option value="to some extent">to some extent</option>
+                                <option value="a lot">a lot</option>
+                            </select>
+                        </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">How odten do you go for single use disposable products over others</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="disposal">
+                            <option value="not at all">not at all</option>
+                            <option value="to some extent">to some extent</option>
+                            <option value="a lot">a lot</option>
+                        </select>
+                    </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">How odten do you switch of unused electronics for energy saving </label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="energy">
+                            <option value="not at all">not at all</option>
+                            <option value="to some extent">to some extent</option>
+                            <option value="a lot">a lot</option>
+                        </select>
+                    </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1"> do you go for LED over CLF and incadascent or similar energy saving profucts </label>
+                                <select class="form-control" id="exampleFormControlSelect1" name="bulb">
+                                    <option value="yes">yes</option>
+                                    <option value="no">no</option>
+                                </select>
+
+                            </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1"> does your product release CFC or pollutants </label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="cfc">
+                            <option value="yes">yes</option>
+                            <option value="no">no</option>
+                        </select></div>
+
+
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1"> do you have E news and magazines over physical one </label>
+                                    <select class="form-control" id="exampleFormControlSelect1" name="news">
+                                        <option value="yes">yes</option>
+                                        <option value="no">no</option>
+                                    </select></div>
+
+                                    <div class="form-group">
+                                      <label for="exampleFormControlSelect1"> Will you plant a tree on your birthday </label>
+                                          <select class="form-control" id="exampleFormControlSelect1" name="plant">
+                                              <option value="yes">yes</option>
+                                              <option value="no">no</option>
+                                          </select></div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1"> How do you travel</label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="travel">
+                        <option value="public">public</option>
+                        <option value="private">private</option>
+                        <option value="carpool">carpool</option>
+                    </select></div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1"> Diet</label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="diet">
+                                <option value="veg">veg</option>
+                                <option value="non_veg">Non Veg</option>
+                                <option value="mostly veg">mostly Veg</option>
+                            </select>
+                </div>
+            
+
+                  <button type="submit" class="btn btn-primary btn-user btn-block">
+                    Analyse!
+                  </button>
+
+
+              </form>
+              <hr>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+<script>
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+  slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>
+  {% endblock content%}

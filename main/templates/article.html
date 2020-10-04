@@ -1,0 +1,42 @@
+{% extends "base.html"%}
+{% block content %}
+
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">Articles</h1>
+
+    {% for i in article %}
+    <div class="card shadow mb-4">
+        <!-- Card Header - Accordion -->
+        <div class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="false"
+            aria-controls="collapseCardExample">
+            <h6 class="m-0 font-weight-bold text-primary">{{i.title}}</h6>
+        </div>
+
+
+        <!-- Card Content - Collapse -->
+        <div class="collapse show" id="collapseCardExample">
+            <div class="card-body">
+                
+                <img class="img-responsive" src=" {{i.images.url}} " alt=""
+                    style="width: 50%; height: 300px; float: left; margin-right: 30px;">
+                
+                <div>
+                {{i.content}}
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+
+
+    {% endfor %}
+
+</div>
+
+{% endblock content%}

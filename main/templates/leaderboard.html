@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block content %}
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">Leaderboard</h1>
+
+          <!-- DataTales Example -->
+          <div class="row">
+            <div class="col-5 m-2 card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Industry Leaderboard</h6>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">Rank</th>
+                          <th scope="col"> Name</th>
+                          <th scope="col">Score </th>
+                          <!-- <th scope="col">bla</th> -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in indus %}
+                        <tr>
+                          <th scope="row">{{ forloop.counter }}</th>
+                          <td>{{ i.user }}</td>
+                          <td>{{ i.score }}</td>
+                        </tr>
+                        
+                       {% endfor %}
+                      </tbody>
+                    </table>  
+                </div>
+              </div>
+            </div> 
+            <div class="col-5 m-2 card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Individual Leaderboard</h6>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">Rank</th>
+                          <th scope="col">name</th>
+                          <th scope="col">Score</th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                        {% for i in indv %}
+                        <tr>
+                          <th scope="row">{{ forloop.counter }}</th>
+                          <td>{{ i.user }}</td>
+                          <td>{{ i.score }}</td>
+                        </tr>
+                        
+                       {% endfor %}
+                       
+                      </tbody>
+                    </table>
+  
+                </div>
+              </div>
+            </div>
+
+          </div> 
+
+          <!-- row 2-->
+          <div class="row mt-5">
+            <div class="col-5 m-2 card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Carbon Footprint Leaderboard</h6>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">Rank</th>
+                          <th scope="col">name</th>
+                          <th scope="col">Score</th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                        {% for i in carbon_fp %}
+                        <tr>
+                          <th scope="row">{{ forloop.counter }}</th>
+                          <td>{{ i.user }}</td>
+                          <td>{{ i.carbon }}</td>
+                        </tr>
+                        
+                       {% endfor %}
+                       
+                      </tbody>
+                    </table>  
+                </div>
+              </div>
+            </div> 
+            
+
+          </div>
+        <!-- /.container-fluid -->
+
+      </div>
+  
+{% endblock content%}

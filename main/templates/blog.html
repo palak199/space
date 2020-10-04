@@ -1,0 +1,78 @@
+{% extends "base.html"%}
+{% block content %}
+
+   
+
+        <!-- Begin Page Content -->
+        <div class="container">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Nature Book</h1>
+
+          {% for content in contents %}
+          
+          <div class="card col-20 shadow mb-8">
+            <!-- Card Header - Accordion -->
+            <a href="#cardExample" class="d-block card-header py-3"  role="button" aria-expanded="false" aria-controls="collapseCardExample">
+              <h6 class="m-0 font-weight-bold text-primary">{{content.title}}</h6>
+              <small class="text-muted">{{ content.time| date:"F d, Y" }}</small>
+              <div style="float: right;" ><strong> {{content.author.first_name}}</strong></div>
+            </a>
+            <div class="card-body">
+              {{content.description}}
+            </div>
+            <!-- Card Content - Collapse -->
+            <!-- <div class="collapse show" id="collapseCardExample"> -->
+              <div class="card-body">
+               
+                <img class="img-responsive pb-5" src=" {{content.images.url}} " alt="" style="width: 50%; height: 200px; float: left; margin-right: 30px;">
+                {{content.content | safe}}
+                <div style="text-align: left;margin-top:10px;">
+
+                  <!-- checkin if user has already liked the content or not -->
+                  {{content.total_likes}} applauds
+                    {% if content.id in already_liked %} 
+                   
+                        <a name="{{ content.id }}" style="font-size:40px;color: blue;" class="likin" id="co"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
+                        {% else %}
+                        <a name="{{ content.id }}" style="font-size:40px;color: black;" class="likin" id="co"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
+                    {% endif %}
+                 
+                  </div>
+              </div>
+            </div>
+          </div>
+         
+          
+          {% endfor %}
+
+        </div>
+        <!-- /.container-fluid -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+// AJAX CALL
+$('.likin').click(function(){
+    $.ajax({
+             type: "POST",
+             url: "{% url 'Blogs:blog' %}",
+             data: {'content_id': $(this).attr('name'),'operation':'like_submit','csrfmiddlewaretoken': '{{ csrf_token }}'},
+             dataType: "json",
+             success: function(response) {
+              selector = document.getElementsByName(response.content_id);
+                    if(response.liked==true){
+                      $(selector).css("color","blue");
+                    }
+                    else if(response.liked==false){
+                      $(selector).css("color","black");
+                    }
+
+
+              }
+
+        });
+
+  })
+</script>
+
+  {% endblock content %}

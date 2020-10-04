@@ -1,0 +1,122 @@
+
+{% load static %}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="icon" href="images/favicon.ico">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%} ">
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" id="announcement-panel">
+				<h1 id="announcement-header">What is your carbon footprint?</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+				<div id="form">
+					{% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{message}}
+            </div>
+        {% endfor %}
+        {% endif %}
+					<form method="POST">
+						{% csrf_token %}
+						<h3 id="home-energy-label"><i class="fa fa-home" aria-hidden="true"></i> Home Energy</h3>	
+						<div class="form-group">
+							<label for="electric">daily electric consumption</label>
+							<div class="input-group">
+								<div class="input-group-addon">$</div>
+								<input class="form-control" name="electric" id="electric" type="number" min="0" step="0.01">
+							</div>
+							<span class="help-block">Enter 0 if not applicable. If left blank, will default to 0.</span>
+						</div>
+						<div class="form-group">
+							<label for="gas">Daily gas Usage</label>
+							<div class="input-group">
+								<div class="input-group-addon">$</div>
+								<input class="form-control" id="gas" name="gas" type="number" min="0" step="0.01">
+							</div>
+							<span class="help-block">Enter 0 if not applicable. If left blank, will default to 0.</span>
+						</div>
+						<div class="form-group">
+							<label for="oil">daily oil usage</label>
+							<p><i>Somes homes use oil as a fuel source for heating furnances or boilers, and is often abbreviated as HHO.</i></p>
+							<div class="input-group">
+								<div class="input-group-addon">$</div>
+								<input class="form-control" name="oil" id="oil" type="number" min="0" step="0.01">
+							</div>
+							<span class="help-block">Enter 0 if not applicable. If left blank, will default to 0.</span>
+						</div>
+						<br/>
+						<h3 class="form-section-label" id="travel-label"><i class="fa fa-globe" aria-hidden="true"></i> Travel</h3>
+						<div class="form-group">
+							<label for="car">Daily Average miles driven on your car</label>
+							<input class="form-control" id="car" name="car" type="number" min="0" step="1">
+							<span class="help-block">Enter 0 if not applicable. If left blank, will default to 0.</span>
+						</div>
+						<div class="form-group">
+							<label for="flights-4-less">Number of flights hours</label>
+							<input class="form-control" id="flights-4-less" name="flights" type="number" min="0" step="1">
+							<span class="help-block">Enter 0 if not applicable. If left blank, will default to 0.</span>
+						</div>
+						
+						<br/>
+						<h3 class="form-section-label" id="waste-label"><i class="fa fa-recycle" aria-hidden="true"></i> Waste</h3>
+						<div class="form-group">
+							<label>Do you recycle newspaper?</label>
+							<div class="alert alert-danger" role="alert" id="newspaper-alert"><strong>Oops!</strong> You need to make a selection.</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="dayOptionsRadios" id="optionsRadio1" value="option1">
+									Yes
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="dayOptionsRadios" id="optionsRadio2" value="option2">
+									No
+								</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Do you Eat Veg or Non Veg</label>
+							<div class="alert alert-danger" role="alert" id="alum-tin-alert"><strong>Oops!</strong> You need to make a selection.</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="mealOptionsRadios" id="optionsRadio3" value="option3">
+									Yes
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="mealOptionsRadios" id="optionsRadio4" value="option4">
+									No
+								</label>
+							</div>
+						</div>
+						<br/>
+						<button id="calculate-btn" type="submit" class="btn btn-success btn-lg btn-block">Calculate! </button>
+					</form>
+				</div>
+
+				
+			</div>	
+		</div>
+	</div>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="{% static 'js/script.js' % }" type="text/javascript"></script>
+</body>
+

@@ -1,0 +1,57 @@
+{% extends "base.html"%}
+{% block content %}
+
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">NGOs</h1>
+
+    {% for content in contents %}
+    <div class="card shadow mb-4">
+        <!-- Card Header - Accordion -->
+        <div class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="false"
+            aria-controls="collapseCardExample">
+            <h6 class="m-0 font-weight-bold text-primary">{{content.name}}</h6>
+            <h6 class="m-0 font-weight-bold text-primary" style="float:right;">Scope : {{content.scope}}</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Registration No. : {{content.reg_no}}</h6>
+        </div>
+
+
+        <!-- Card Content - Collapse -->
+        <div class="collapse show" id="collapseCardExample">
+            <div class="card-body">
+                <div>
+                    Objective : {{content.objective}}
+                </div>
+                {% if content.image.url %}
+                <img class="img-responsive" src=" {{content.image.url}} " alt=""
+                    style="width: 50%; height: 300px; float: left; margin-right: 30px;">
+                {% endif %}
+                
+                <div>
+                    NGO Description : {{content.description}}
+                </div>
+                
+                NGO Contribution : {{content.contribution}}
+                <div style="text-align: left;margin-top:10px;">
+                    Visit :<a href="{{content.link}}"> {{content.website}}</a>
+
+                </div>
+                OR
+                <div style="text-align: left;margin-top:10px;">
+                    Email : :<a href="mailto:{{content.email}}"> {{content.email}}</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% endfor %}
+
+</div>
+
+{% endblock content%}

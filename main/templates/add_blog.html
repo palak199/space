@@ -1,0 +1,21 @@
+{% extends "base.html"%}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section" style="margin-left: 30%;">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">
+                   Add your good deed!<br>
+                    let it inspire others
+                </legend>
+                {{form|crispy}}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-success ml-5 px-5" type="submit">Post!!!</button>
+            </div>
+        
+
+        </form>
+    </div>
+{% endblock content%}

@@ -1,0 +1,43 @@
+{% extends "base.html"%}
+{% block content %}
+
+   
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Nature Book</h1>
+
+          {% for content in contents %}
+          <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCardExample">
+              <h6 class="m-0 font-weight-bold text-primary">{{content.title}}</h6>
+              <small class="text-muted">{{ content.time| date:"F d, Y" }}</small>
+              <div style="float: right;" ><strong> {{content.author.first_name}}</strong></div>
+            </a>
+            <div class="card-body">
+              {{content.description}}
+            </div>
+            <!-- Card Content - Collapse -->
+            <div class="collapse show" id="collapseCardExample">
+              <div class="card-body">
+               
+                <img class="img-responsive" src=" {{content.images.url}} " alt="" style="width: 50%; height: 300px; float: left; margin-right: 30px;">
+                {{content.content | safe}}
+        
+              </div>
+            </div>
+          </div>
+          <div>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'Blogs:post-delete' content.id %}">Delete</a>
+            </div>
+          {% endfor %}
+
+        </div>
+        <!-- /.container-fluid -->
+
+  
+
+  {% endblock content%}

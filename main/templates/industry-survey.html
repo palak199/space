@@ -1,0 +1,211 @@
+{% extends "base.html"%}
+{% block content %}
+
+  
+<body class="bg-gradient-primary">
+
+  <div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-7">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Letus know more about you!</h1>
+              </div>
+              <form class="user" method="POST">
+                {% csrf_token %}
+              
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">
+                      Name of Industry  </label>
+                      <input type="text" name="name" value="Enter Name">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1">
+                      Annual turnover of Company in Crores   </label>
+                      <input type="number" name="turnover" value="turnover">
+                  </div>
+
+
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1"> Is your company verified for Pollution control </label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="pollution">
+                            <option value="yes">yes</option>
+                            <option value="no">no</option>
+                        </select></div>
+
+                
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Do you feel your company is doing something to sustain the environment </label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="sustainibility">
+                        <option value="yes">yes</option>
+                        <option value="no">no</option>
+                    </select></div>
+
+
+
+            
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Is your industry CSR (Corporate Social responsibility) deficient</label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="csr_def">
+                                <option value="yes">yes</option>
+                                <option value="no">no</option>
+                            </select></div>
+
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect1">Do you hold plantation and sanitaion drives regularly in Company</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="plant">
+                            <option value="yes">yes</option>
+                            <option value="no">no</option>
+                        </select></div>
+
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Does your industry discharge untreated waste to nature</label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="untreated_sewage">
+                                <option value="yes">yes</option>
+                                <option value="no">no</option>
+                            </select>
+                          </div>
+
+
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Do you gift a plant to Employee of Month</label>
+                                <select class="form-control" id="exampleFormControlSelect1" name="emp_month">
+                                    <option value="yes">yes</option>
+                                    <option value="no">no</option>
+                                </select></div>
+
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Do you conduct regular environment audits for your company</label>
+                                    <select class="form-control" id="exampleFormControlSelect1" name="env_audit">
+                                        <option value="yes">yes</option>
+                                        <option value="no">no</option>
+                                    </select></div>
+
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Do you seggregate garbage into categories for disposal</label>
+                                        <select class="form-control" id="exampleFormControlSelect1" name="garbage">
+                                            <option value="not at all">not at all</option>
+                                            <option value="to some extent">to some extent</option>
+                                            <option value="a lot">a lot</option>
+                                        </select></div>
+
+
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Do you generate better employment</label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="employment">
+                        <option value="not at all">not at all</option>
+                        <option value="to some extent">to some extent</option>
+                        <option value="a lot">a lot</option>
+                      </select>
+                    </div>
+
+
+
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect1">Do you provide health benifits to employees </label>
+                          <select class="form-control" id="exampleFormControlSelect1" name="health">
+                              <option value="not at all">not at all</option>
+                              <option value="to some extent">to some extent</option>
+                              <option value="a lot">a lot</option>
+                            </select>
+                        </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Do you follow 3Rs of Reduce Reuse and Recycle</label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="recycle">
+                                <option value="not at all">not at all</option>
+                                <option value="to some extent">to some extent</option>
+                                <option value="a lot">a lot</option>
+                            </select>
+                        </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Does your company hold responsibility of accidents and damange</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="responsibility">
+                            <option value="not at all">not at all</option>
+                            <option value="to some extent">to some extent</option>
+                            <option value="a lot">a lot</option>
+                        </select>
+                    </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Which energy source do you use</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="energy">
+                            <option value="conventional">Conventional</option>
+                            <option value="non_conventional"> Non Conventional</option>
+                            <option value="mix">Mixed</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Which water source do you use</label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="water_source">
+                                <option value="River/lake">River/lake</option>
+                                <option value="Ground water"> Ground water</option>
+                                <option value="Rain water">Rain water</option>
+                                <option value="Municipal water">Municipal water</option>
+                            </select>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">What kind of effluent do you release to nature</label>
+                                <select class="form-control" id="exampleFormControlSelect1" name="effluent">
+                                    <option value="air">air</option>
+                                    <option value="water">water</option>
+                                    <option value="soil">soil</option>
+                                    <option value="not_applied">Not Applied</option>
+                                </select>
+                            </div>
+                       
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Quantum of effluent as %age of processing material</label>
+                                    <select class="form-control" id="exampleFormControlSelect1" name="effluent_q">
+                                        <option value=">50%"> More than 50 %</option>
+                                        <option value="30%">30%</option>
+                                        <option value="20%">20%</option>
+                                        <option value="5%">5%</option>
+                                        <option value="1%">less than 1%</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Nature of Waste generated</label>
+                                        <select class="form-control" id="exampleFormControlSelect1" name="nature_waste">
+                                            <option value="recyclabe">recyclabe</option>
+                                            <option value="non_recyclabe">non_recyclabe</option>
+                                            <option value="partial_recyclable">partial_recyclable</option>
+                                            <option value="nearly_null">nearly_null</option>
+                                        </select>
+                                    </div>
+          
+
+                  <button type="submit" class="btn btn-primary btn-user btn-block">
+                    Analyse!
+                  </button>
+
+              </form>
+              <hr>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  {% endblock content%}

@@ -1,0 +1,37 @@
+{% extends "base.html"%}
+{% block content %}
+
+
+
+<div style="text-align: center;">
+	<h2>Please select how would you like to sign up as?</h2>
+	<form method="POST" style="margin-left: 45%; text-align: justify; margin-top: 100px;" >
+        {% csrf_token %}
+		<label for="choice1" class="radio">
+			<input  type="radio" id="choice-1" name="category" value="ngo" />
+			<label  for="exampleRadios1" style="font-size: large; margin: 30px 0px;">
+				NGO
+			  </label>
+		</label>
+		<br>
+		<label for="choice-2">
+			<input  type="radio" id="choice-2" name="category" value="industry" />
+			<label  for="exampleRadios1" style="font-size: large; margin: 30px 0px;">
+				Industry
+			  </label>
+		</label>
+		<br>
+		<label for="choice-3">
+			<input type="radio"  id="choice-3" name="category" value="individual" />
+			<label class="form-check-label" for="exampleRadios1" style="font-size: large; margin: 30px 0px;">
+				Individual
+			  </label>
+		</label>
+		<br>
+		<button class="btn btn-success"  type="submit">I'm in</button>
+	</form>
+</div> <!-- .form-wrapper -->
+
+
+
+{% endblock content %}
