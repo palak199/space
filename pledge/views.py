@@ -19,19 +19,19 @@ def send_pledge(request):
         message = render_to_string('pledge-signed.html')
         message.content_subtype = "html"
         receiver = request.user.email  
-        recievers = [receiver]
+        receivers = [receiver]
         user=request.user
        
-        recievers.append(user)
+        receivers.append(user)
         
-        # print(recievers)
-        send_mail(subject, plain_message, EMAIL_HOST_USER, recievers,html_message=message)
+        print(receivers)
+        send_mail(subject, plain_message, EMAIL_HOST_USER, receivers,html_message=message)
         return redirect('home')
             
     return render(request,"pledge.html")
 
    
-        
+       
     
 
 

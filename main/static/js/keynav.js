@@ -30,49 +30,28 @@ try {
     
     $(document).keydown(function(e) {
         switch (e.which) {
-                case 33: 
-                    $("#play").trigger("click")            // keyup
-                    break;
-                
-                case 13:
-                    document.getElementById("my_audio").play();      //enter
-                    break;
 
-                case 20:
-                    $(location).attr('href', $('#login').attr('href'))      //caps
-                    break;
+               
                 
                 case 107:
-                    $(location).attr('href', $('#ngos').attr('href'))      // *
+                    $("#play").trigger("click");                        // +
                     break;
-
-               // case 32:
-                   // $("#play").trigger("click") 
-                  //  break;
+                
+                case 18:
+                  document.getElementById("my_audio").play();      //alt
+                  break;
 
                 case 109:
-                    $(location).attr('href', $('#logout').attr('href'))         //-
-                    break;
-                    
-                case 16:
-                        $(location).attr('href', $('#register').attr('href'))      //shift
-                        break;
-                
-                case 107:
-                    $("#play").trigger("click")   
-                    $(location).attr('href', $('#blogWrite').attr('href'))       //+
-                    break;
-                
-                case 111:
-                
-                    $(location).attr('href', $('#blogs').attr('href'))        // forward slah
+                    $(location).attr('href', $('#articles').attr('href'))         //-
                     break;
                 
                 case 192:
-                
-                    $(location).attr('href', $('#orgs').attr('href'))        // back slah
-                    break;
+                  $(location).attr('href', $('#blogs').attr('href'))        // tilde
+                  break;
 
+
+                case 46:                                                    //delete
+                  $(location).attr('href', $('blogWrite').attr('href'))
                                               
             
         }
